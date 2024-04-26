@@ -1,4 +1,5 @@
 import './App.css'
+
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { useRef, useState, useEffect } from 'react'
@@ -88,8 +89,8 @@ function App() {
         </div>
         <div className="id-pass my-3 flex flexx-row gap-3">
           <input type="text" value={form.username} name="username" id="username" className='border-2 border-green-500 p-2 rounded-full' size={90} placeholder='Enter your username' onChange={handleChange} />
-          <input ref={passwordRef} type="password" value={form.password} name="password" id="pass" className='border-2 border-green-500 p-2 rounded-full' size={50} placeholder='Enter your password' onChange={handleChange} />
-          <span className='z-1 fixed right-52 bottom-96' onClick={showPassword} ><img ref={ref} src="/src/assets/eye.svg" alt="" /></span>
+          <div><input ref={passwordRef} type="password" value={form.password} name="password" id="pass" className='border-2 border-green-500 p-2 rounded-full' size={50} placeholder='Enter your password' onChange={handleChange} />
+          <span className='z-1 fixed right-[200px] bottom-[345px]' onClick={showPassword} ><img ref={ref} src="/src/assets/eye.svg" alt="" /></span></div>
         </div>
         <div className="submit">
           <button className='bg-green-500 py-2 px-3 rounded-full font-bold my-4 flex gap-2 text-lg items-center' onClick={savePassword}>
@@ -99,6 +100,7 @@ function App() {
       </div>
       <div className="saved-data my-4">
         <div className='font-extrabold text-2xl text-green-500 mx-48 my-2'>Your Passwords</div>
+          {/* this is the saved password part */}
         {passwordArray.length === 0 && <div className='font-extrabold text-lg text-white mx-48 my-12'>No password to show</div>}
         {passwordArray.length != 0 && <table className='table-auto mx-auto w-11/12 rounded-lg overflow-hidden'>
           <thead>

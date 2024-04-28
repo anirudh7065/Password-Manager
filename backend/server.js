@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
+// eslint-disable-next-line no-undef
 const url = process.env.MONGO_URI;
 const client = new MongoClient(url);
 const dbName = 'PassMan';

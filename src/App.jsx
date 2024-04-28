@@ -65,7 +65,6 @@ function App() {
         progress: undefined,
         theme: "dark",
       });
-      setForm({ website: "", username: "", password: "" })
     } else if (form.username == "") {
       toast.error('fix username', {
         position: "bottom-right",
@@ -77,7 +76,6 @@ function App() {
         progress: undefined,
         theme: "dark",
       });
-      setForm({ website: "", username: "", password: "" })
     }
     else if (form.password == "") {
       toast.error('fix password', {
@@ -90,16 +88,16 @@ function App() {
         progress: undefined,
         theme: "dark",
       });
-      setForm({ website: "", username: "", password: "" })
       }
     else {
-      await fetch("http://localhost:3000/", {
-      method: "DELETE",
-      headers: {
-        "Content-type": "application/json"
-      },
-      body:JSON.stringify({id: form.id})
-      });
+
+      // await fetch("http://localhost:3000/", {
+      // method: "DELETE",
+      // headers: {
+      //   "Content-type": "application/json"
+      // },
+      // body:JSON.stringify({id : form.id})
+      // });
       setpasswordArray([...passwordArray, { ...form, id: uuidv4() }]);
       await fetch("http://localhost:3000/", {
         method: "POST",
@@ -118,8 +116,8 @@ function App() {
         progress: undefined,
         theme: "dark",
       });
-      setForm({ website: "", username: "", password: "" })
     }
+    setForm({ website: "", username: "", password: "" })
     // localStorage.setItem("passwords", JSON.stringify([...passwordArray, { ...form, id: uuidv4() }]))
 
 
@@ -152,9 +150,18 @@ function App() {
       theme: "dark",
     });
   }
-  const handleEdit = (id) => {
-    setForm({...passwordArray.filter(i => i.id === id)[0],id:id})
-    setpasswordArray(passwordArray.filter(item => item.id != id));
+  const handleEdit = async(id) => {
+
+    await fetch("http://localhost:3000/", {
+      method: "DELETE",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body:JSON.stringify({id})
+      });
+    setForm({...passwordArray.filter(i => i.id === id)[0],id: id})
+    setpasswordArray(passwordArray.filter(item => item.id !== id));
+
   }
   return (
     <>

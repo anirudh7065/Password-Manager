@@ -153,6 +153,11 @@ function App() {
     setpasswordArray(passwordArray.filter(item => item.id !== id));
 
   }
+  const handleKey = (e)=>{
+    if(e.key == "Enter"){
+      savePassword();
+    }
+  }
   return (
     <>
       <ToastContainer
@@ -168,7 +173,7 @@ function App() {
         theme="dark"
       />
       <Navbar />
-      <section className='flex w-full flex-col justify-center items-center my-16'>
+      <section className='flex w-full flex-col justify-center items-center my-16 mx-auto'>
         <div className='flex justify-center'>
           <img src="/src/assets/Passman.svg" alt="" className='w-1/2 h-1/3' />
         </div>
@@ -183,14 +188,14 @@ function App() {
         <div className="id-pass my-3 flex justify-center items-center gap-3 w-10/12 mx-auto flex-col md:flex-row ">
           <input type="text" value={form.username} name="username" id="username" className='border-2 border-green-500 p-2 rounded-full w-full md:w-2/3' placeholder='Enter your username' onChange={handleChange} />
           <div className="pass relative w-full md:w-2/6" >
-            <input ref={passwordRef} type="password" value={form.password} name="password" id="pass" className="border-2 border-green-500 p-2 rounded-full w-full" placeholder='Enter your password' onChange={handleChange} />
+            <input ref={passwordRef} type="password" value={form.password} name="password" id="pass" className="border-2 border-green-500 p-2 rounded-full w-full" placeholder='Enter your password' onChange={handleChange}  onKeyDown = {handleKey} />
             <span className='z-1 absolute top-3 right-4 cursor-pointer'  onClick={showPassword} >
               <img ref={ref} src="/src/assets/eye.svg" alt="" />
             </span>
           </div>
         </div>
         <div className="submit">
-          <button className='bg-green-500 py-2 px-3 rounded-full font-bold my-4 flex gap-2 text-lg items-center' onClick={savePassword}>
+          <button className='bg-green-500 py-2 px-3 rounded-full font-bold my-4 flex gap-2 text-lg items-center hover:bg-green-600' onClick={savePassword}>
             <img width="22" height="22" src="https://img.icons8.com/ios-filled/50/plus.png" alt="plus" />
             Save</button>
         </div>
@@ -201,7 +206,7 @@ function App() {
         {passwordArray.length === 0 && <><div className='font-extrabold text-lg text-white md:mx-40 md:my-12'>No password to show</div></>}
         {passwordArray.length != 0 && <table className='table-auto mx-auto w-11/12 rounded-lg overflow-hidden my-5'>
           <thead>
-            <tr className='border-2 border-black rounded-r-2xl'>
+            <tr className='rounded-r-2xl'>
               <th className='bg-blue-800 w-1/4 py-2 text-lg'>Website</th>
               <th className='bg-blue-800 w-1/4 py-2 text-lg'>Username</th>
               <th className='bg-blue-800 w-1/4 py-2 text-lg'>Password</th>

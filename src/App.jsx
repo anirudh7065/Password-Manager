@@ -39,17 +39,31 @@ function App() {
   }
 
   const copyText = (text) => {
-    toast.success('Copied To Clipboard', {
-      position: "bottom-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: false,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
-    navigator.clipboard.writeText(text)
+    const pass = prompt("Enter the pass to copy");
+    if(pass == "127856"){
+      toast.success('Copied To Clipboard', {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      navigator.clipboard.writeText(text)
+    }else{
+      toast.error('Wrong Password !!', {
+        position: "bottom-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    }
 
   }
 

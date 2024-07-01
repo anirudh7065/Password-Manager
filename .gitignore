@@ -169,3 +169,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 backend/.env
+backend/package-lock.json

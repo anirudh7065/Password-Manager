@@ -1,8 +1,9 @@
 import express from 'express'
 import 'dotenv/config'
-import { MongoClient } from 'mongodb'
+import {MongoClient} from 'mongodb'
 import bodyParser from 'body-parser';
 import cors from 'cors';
+
 
 const app = express()
 const port = 3000
@@ -10,7 +11,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
-// eslint-disable-next-line no-undef
 const url = process.env.MONGO_URI;
 const client = new MongoClient(url);
 const dbName = 'PassMan';

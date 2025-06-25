@@ -1,8 +1,3 @@
-# React + Vite
+# PassMan
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+PassMan - Password Manager is a GUI based web application that allows users to store passwords. It is created with React JavaScript Library, Tailwind CSS, Nodejs and MongoDB to manage passwords for several application. A password manager is a program that houses all your passwords, as well as other information, in one convenient location.
